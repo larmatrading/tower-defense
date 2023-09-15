@@ -74,7 +74,6 @@ function animate() {
 			document.querySelector('#hearts').innerHTML = hearts
 			
 			if (hearts === 0) {
-				console.log('game over')
 				cancelAnimationFrame(animationId)
 				document.querySelector('#gameOver').style.display = 'flex'
 			}
@@ -90,7 +89,6 @@ function animate() {
 			explosions.splice(i, 1)
 		}
 		
-		console.log(explosions)
 	}
 
 	// tracking total amount of enemies
@@ -139,7 +137,6 @@ function animate() {
 					}
 				}			
 				
-				console.log(projectile.enemy.health)
 				explosions.push(
 					new Sprite({
 						position: { x: projectile.position.x, y: projectile.position.y}, 
