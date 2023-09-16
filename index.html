@@ -35,35 +35,50 @@
         .play-button:hover {
             background-color: #00cc00;
         }
+
+        /* Add a style to hide the game screen initially */
+        .game-screen {
+            display: none;
+            width: 100%; /* Make sure the game screen occupies the entire width */
+            height: 100vh; /* Make sure the game screen occupies the entire viewport height */
+            overflow: hidden; /* Hide scrollbars */
+        }
     </style>
 </head>
 <body>
-    <div class="title">Tower Defense Game</div>
-    <div class="instructions">  
-    <p><strong>How to Play:</strong></p>
-    <ul>
-        <p>Click on an available tower placement location to build a tower.</p>
-        <p>Each tower type has its own unique abilities and costs. Choose your towers wisely.</p>
-        <p>Defeat waves of enemies to earn coins. Use coins to build and upgrade your towers.</p>
-        <p>If enemies breach your defenses, you'll lose health.</p>       
-    </ul>
+    <!-- Start Screen -->
+    <div class="start-screen" id="startScreen">
+        <div class="title">Tower Defense Game</div>
+        <div class="instructions">  
+            <p><strong>How to Play:</strong></p>
+            <!-- Your game instructions here -->
+            <p>Click "Play" to start the game!</p>
+        </div>
+        <button class="play-button" onclick="startGame()">Play</button>
+    </div>
 
- 
-
-    <p>Are you ready to defend your territory and conquer the enemy waves? Click "Play" to start the game!</p>
-</div>
-
-    <button class="play-button" onclick="startGame()">Play</button>
+    <!-- Game Screen (Initially hidden) -->
+    <div class="game-screen" id="gameScreen">
+        <!-- This is where the game will be loaded -->
+    </div>
 
     <!-- Include your game scripts here -->
     <script src="scripts/waypoints.js"></script>
     <!-- Add any other scripts your game needs -->
-    
+
     <script>
         // JavaScript function to start the game when the "Play" button is clicked
         function startGame() {
-            // Redirect to your game's main HTML file or load the game in some way
-            window.location.href = "game.html"; // Replace "game.html" with the actual filename of your game
+            // Hide the start screen
+            document.getElementById("startScreen").style.display = "none";
+
+            // Show the game screen
+            document.getElementById("gameScreen").style.display = "block";
+
+            // Load the game content (iframe or other method) into the game screen
+            // Example using an iframe:
+            const gameScreen = document.getElementById("gameScreen");
+            gameScreen.innerHTML = '<iframe src="game.html" width="100%" height="100%" frameborder="0"></iframe>';
         }
     </script>
 </body>

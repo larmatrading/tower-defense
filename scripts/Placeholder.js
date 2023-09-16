@@ -1,3 +1,73 @@
+The index.html now has a button to toggle between having the game screen visible
+Next items:
+	load screen data from game.html into the index
+	Write code that segments by level
+	able to load the level specific data. Level 1 on play button
+	Each level has the level end code which loads button to go next level
+	Each level has game over logic which clears game & returns to start screen
+
+
+// code to handle start screen into first level
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Defense Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="startScreen">
+        <h1>Welcome to Tower Defense</h1>
+        <button id="playButton">Play</button>
+    </div>
+
+    <!-- Game Elements -->
+    <div id="game" style="display: none;">
+        <canvas id="gameCanvas"></canvas>
+        <!-- Other game elements go here -->
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
+
+
+// Code to handle levels
+// Shared variables across levels
+let coins = 0;
+let hearts = 10;
+let currentLevel = 1; // Track the current level
+
+// Define level-specific data
+const levelData = {
+    1: {
+        enemyWaves: [/* ... */],
+        towerPlacement: [/* ... */],
+    },
+    2: {
+        enemyWaves: [/* ... */],
+        towerPlacement: [/* ... */],
+    },
+    // Define data for other levels
+};
+
+// Function to transition to the next level
+function transitionToNextLevel() {
+    currentLevel++;
+    if (currentLevel <= numLevels) {
+        // Clear the current level, load next level data, and initialize
+        clearCurrentLevel();
+        loadLevelData(currentLevel);
+        initializeLevel();
+    } else {
+        // Game completed, show victory screen or take appropriate action
+        showVictoryScreen();
+    }
+}
+
+// Code definitions for classes
 class placementTile {
 	constructor ({position = {x: 0, y:0}}) {
 		this.position = position
