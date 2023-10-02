@@ -1,6 +1,7 @@
+//console.log("entered waypoints.js")
 const waypoints =[
 	{
-	 "x":-57.5757575757576,
+	 "x":0,
 	 "y":478.787878787879
 	}, 
 	{

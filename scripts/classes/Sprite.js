@@ -1,3 +1,4 @@
+//console.log("entered Sprite.js")
 class Sprite {
 	constructor({
 		position = { x: 0, y: 0}, 

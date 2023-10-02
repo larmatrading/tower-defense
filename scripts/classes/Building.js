@@ -1,3 +1,4 @@
+//console.log("entered Building.js")
 class Building extends Sprite {
 	constructor({position = {x: 0, y: 0 } }) {
 		super({

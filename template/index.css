@@ -1,0 +1,175 @@
+/* index.css */
+
+/* Reset some default browser styles */
+body, h1, p, button {
+  margin: 0;
+  padding: 0;
+}
+/* General Styles */
+body {
+  background-color: black;
+  font-family: 'Changa One', cursive;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; Remove this line */
+  /* justify-content: center; Remove this line */
+}
+/* Make the main game screen and start screen take up full viewport height */
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Adjust to align content at the top */
+  height: 100vh; /* Ensure the start screen takes up the full viewport height */
+  background-color: black; /* Restore the black background */
+}
+/* Styles for title and header with black outline */
+.title {
+  font-size: 68px;
+  margin: 0;
+  padding: 20px; /* Add some padding for spacing */
+  text-align: center;
+  -webkit-text-stroke: 2px black; /* Text stroke */
+}
+/* Styles for instructions */
+.instructions {
+  font-size: 24px; /* Adjust the font size as needed */
+  text-align: center; /* Center align the text */
+  margin: 20px 0; /* Add top and bottom margin to separate from the title and play button */
+}
+/* Button Styles */
+#playButton {
+  background-color: #00ff00;
+  color: black;
+  font-size: 24px;
+  padding: 10px 20px;
+  margin-top: auto; /* This will push the button to the vertical center */
+  margin-bottom: auto; /* This will push the button to the vertical center */
+  cursor: pointer;
+  text-align: center; /* Center the text horizontally */
+}
+#playButton:hover {
+    background-color: #00cc00;
+}
+/* Add a style to hide the game screen initially */
+#gameScreen {
+  position: relative;
+  font-size: 48px;
+  display: none;
+  width: 100%;
+  height: 0;
+  padding-top: calc(100% / (16/9)); /* Set the aspect ratio (16:9 in this example) */
+  overflow: hidden;
+  /* height: 100vh; Remove this line */
+  /* flex-direction: column; Remove this line */
+  /* align-items: center; Remove this line */
+  /* justify-content: center; Remove this line */
+}
+/* Style the canvas to fill the game screen */
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Add styles for the status bar */
+#status-bar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 36px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    display: flex;
+    justify-content: flex-end; /* Change this to move the button to the right */
+    width: 400px;
+    height: 40px;
+    background: linear-gradient(
+        to left bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0)
+    );
+}
+/* Add styles for the status bar */
+#status-bar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 36px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    display: flex;
+    justify-content: right;
+    width: 400px;
+    height: 40px;
+    background: linear-gradient(
+        to left bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0)
+    );
+}
+/* Style for the Quit Game button */
+#quitButton {
+    margin-left: 0px; /* Add some margin to separate it from other elements */
+	background-color: red;
+	font-size: 12px;
+	padding: 5px 5px;
+	margin-top: auto; /* This will push the button to the vertical center */
+	margin-bottom: auto; /* This will push the button to the vertical center */
+	cursor: pointer;
+	text-align: center; /* Center the text horizontally */
+}
+/* Style the coin icon */
+#status-bar #gold {
+    display: flex;
+    margin-right: 20px;
+}
+#status-bar #gold svg {
+    color: gold;
+    fill: currentColor;
+    margin-right: 5px;
+}
+/* Style the heart icon */
+#status-bar #lives {
+    display: flex;
+    margin-right: 10px;
+}
+#status-bar #lives svg {
+    margin-right: 5px;
+    color: red;
+    fill: currentColor;
+}
+/* Define a CSS class for the game over element */
+.game-over {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    color: white;
+    -webkit-text-stroke: 3px black;
+    /* Add any other styles you need for the game over element */
+}
+/* Define a CSS class for the gradient box element */
+.gradient-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 100px;
+    background: linear-gradient(
+        to left bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0)
+    );
+}

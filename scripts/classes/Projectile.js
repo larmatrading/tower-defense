@@ -1,3 +1,4 @@
+//console.log("entered Projectile.js")
 class Projectile extends Sprite {
 	constructor({position = {x: 0, y: 0}, enemy}) {
 		super({position, imageSrc: 'img/projectile.png'})

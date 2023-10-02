@@ -1,3 +1,4 @@
+//console.log("entered placementTile.js")
 class placementTile {
 	constructor ({position = {x: 0, y:0}}) {
 		this.position = position
@@ -20,6 +21,7 @@ class placementTile {
 			mouse.y > this.position.y && 
 			mouse.y < this.position.y + this.size
 		) {
+			//console.log('colliding')
 			this.color = 'white'
 		}	else this.color = 'rgba(255, 255, 255, 0.15)'
 	}
