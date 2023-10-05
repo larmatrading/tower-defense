@@ -15,13 +15,11 @@ function initializeLevel() {
 	//console.log('initializeLevel')
 	populatePlacementTilesData2D(level1PlacementTilesData);
 	populatePlacementTiles();
-	
-	
 }
 /**	Variable definitions **/
 // Define enemy wave arrays
 const wave1 = [
-	{ type: "EnemyType1", count: 2 },
+	{ type: "EnemyType1", count: 10 },
 ];
 
 const wave2 = [

@@ -14,11 +14,11 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 let waves = []
 let activeTile = undefined
 let hearts = 10
-let coins = 100
+let coins = 1000
 const placementTilesData2D = []
 const placementTiles = []
 const enemies = []	// Enemies Array
-const buldings = []
+const buildings = []
 const explosions = []
 const mouse = {
 	x: undefined,
@@ -100,6 +100,21 @@ function spawnEnemy(enemyType, xOffset) {
       break;
   }
 }
+//	handle building spawning
+function spawnBuilding(buildingType, position) {
+  switch (buildingType) {
+    case "BuildingType1":
+      buildings.push(new BuildingType1({ position }));
+      break;
+    case "BuildingType2":
+      buildings.push(new BuildingType2({ position }));
+      break;
+    // Add more cases for other building types as needed
+    default:
+      // Handle unknown building types or add more cases
+      break;
+  }
+}
 /** start of old code **/
 function animate() {
 	const animationId = requestAnimationFrame(animate)
@@ -110,8 +125,9 @@ function animate() {
 		enemy.update()
 		if (enemy.position.x > canvas.width) {
 			hearts -= 1
-			enemies.splice(i, 1)			
-			document.querySelector('#hearts').innerHTML = heart
+			enemies.splice(i, 1)
+			// next line may be unneeded
+			document.querySelector('#hearts').innerHTML = hearts;
 			if (hearts === 0) {
 				cancelAnimationFrame(animationId)
 				document.querySelector('#gameOver').style.display = 'flex'
@@ -140,7 +156,7 @@ function animate() {
 		tile.update(mouse)
 	})
 	
-	buldings.forEach((building) => {
+	buildings.forEach((building) => {
 		building.update()
 		building.target = null
 		const validEnemies = enemies.filter(enemy => {
@@ -187,22 +203,26 @@ function animate() {
 	})
 }
 
-
-
+// building creation handled here
 canvas.addEventListener('click', (event) => {
 	if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) {
 		coins -= 50
 		document.querySelector('#coins').innerHTML = coins
-		buldings.push(
+		spawnBuilding("BuildingType1", {
+		  x: activeTile.position.x,
+		  y: activeTile.position.y
+		});
+		/*
+		buildings.push(
 			new Building({
 				position: {
 					x: activeTile.position.x,
 					y: activeTile.position.y
 				}
 			})
-		)
+		)*/
 		activeTile.isOccupied = true
-		buldings.sort((a, b) => {
+		buildings.sort((a, b) => {
 			return a.position.y - b.position.y
 		})
 	}

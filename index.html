@@ -1,35 +1,33 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link 
-	href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" 
-	rel="stylesheet"
->
-<style>
-	body {
-		background-color: black;
-		font-family: 'Changa One', cursive;
-	}
-</style>
-
-<div style="position: relative; display: inline-block">
-	<canvas></canvas>
-	<div 
-		id="gameOver"
-		style="
-			position: absolute; 
-			top: 0; 
-			bottom: 0; 
-			left: 0; 
-			right: 0; 
-			display: none; 
-			align-items: center;
-			justify-content: center;
-			font-size: 72px;
-			color: white;
-			-webkit-text-stroke: 3px black;
-		"
-	>
-		GAME OVER
+<!DOCTYPE html>
+<!-- index.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" rel="stylesheet">
+    <title>Tower Defense Game</title>
+</head>
+<body>
+    <div id="startScreen">
+        <div id="title">Tower Defense Game</div>        
+		<div id="instructions">
+			<p><strong>How to Play:</strong></p>
+            <p>Click "Play" to start the game!</p>
+		</div>
+        <button id="playButton">Play</button>
+    </div>
+<div id="gameScreen" style="position: relative; display: inline-block">
+	<div id="gameOver">GAME OVER</div>
+	<canvas id="canvas"></canvas>
+    <div id="gameScreen" >
+		<!-- Level template (hidden by default) -->
+		<div id="levelTemplate" >
+			<!-- Common level elements, including canvas -->
+			<div id="gradient-box"></div>
+			<div id="status-bar" >
+			</div><!--  status-bar -->
+		</div><!--  levelTemplate -->
 	</div>
 	<div 
 		style="
@@ -92,6 +90,9 @@
 		</div>
 	</div>
 </div>
+<body>
+
+
 
 <script src="scripts/waypoints.js"></script>
 <script src="scripts/placementTilesData.js"></script>

@@ -58,3 +58,21 @@ class Building extends Sprite {
 		)
 	}
 }
+class BuildingType1 extends Building {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({
+      position,
+      // Tower-specific properties and methods
+    });
+  }
+  // Additional methods and properties for Tower buildings
+}
+class BuildingType2 extends Building {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({
+      position,
+      // Tower-specific properties and methods
+    });
+  }
+  // Additional methods and properties for Tower buildings
+}
